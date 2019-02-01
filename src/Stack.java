@@ -1,3 +1,8 @@
+/**
+ * Interfaz que implementa pila
+ * @param <E>
+ * @Note Ver Pila.java
+ */
 public interface Stack<E> {
 
     public void push(E item);
