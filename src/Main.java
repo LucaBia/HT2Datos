@@ -3,47 +3,43 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args){
         //para leer el archivo
-        ArrayList<String> cubilete = new ArrayList<String>();
+        ArrayList<String> archivo = new ArrayList<String>();
         try {
             Stream<String> lines = Files.lines(
-                    Paths.get(""),
+                    Paths.get("datos.txt"),
                     StandardCharsets.UTF_8
             );
-            lines.forEach(a -> cubilete.add(a));
+            lines.forEach(archivo::add);
         }catch (IOException e ){
             System.out.println("Error!");
         }
         //crear el objeto pila
         Pila pila = new Pila();
         //crear el objeto calculadora
-        Calculator calculator = new MyCalculator();
+        MyCalculator calculator = new MyCalculator();
 
 
-        for (int a=0; a<cubilete.size();a++) {
+        for (String anArchivo : archivo) {
 
+            String[] caracteres = anArchivo.split("");
+            ArrayList<String> operacion = new ArrayList<>(Arrays.asList(caracteres));
 
-            String[] caracteres = cubilete.get(a).split("");
-            ArrayList<String> operacion = new ArrayList<>();
-            for (int i = 0; i < caracteres.length; i++) {
-                operacion.add(caracteres[i]);
-            }
-
-            for (int car = 0; car < operacion.size(); car++) {
+            for (String anOperacion : operacion) {
                 int num;
-                String caracter = operacion.get(car);
                 try {
-                    num = Integer.parseInt(caracter);
+                    num = Integer.parseInt(anOperacion);
                     pila.push(num);
                 } catch (Exception e) {
-                    if (!caracter.equals(" ")) {
+                    if (!anOperacion.equals(" ")) {
                         int num1 = (int) pila.pop();
                         int num2 = (int) pila.pop();
-                        int resultado = calculator.calculate(num2, num1, caracter);
+                        int resultado = calculator.calculate(num2, num1, anOperacion);
                         pila.push(resultado);
                     }
                 }
