@@ -1,7 +1,7 @@
 /**
  * Interfaz que implementa pila
- * @param <E>
- * @Note Ver Pila.java
+ * @param <E> generico
+ * Note: Ver Pila.java
  */
 public interface Stack<E> {
 

@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+/**
+ * Clase principal
+ * @author gianlucariverabiagioni / franciscorosal
+ */
 public class Main {
     public static void main(String[] args){
         //para leer el archivo

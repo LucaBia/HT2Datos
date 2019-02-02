@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 public class PilaTest {
 
     /**
-     * Test de la clase Pila. Verifica el tamaño inicial del vector.
+     * Test de la clase Pila. Verifica el tamanio inicial del vector.
      */
     @Test
     public void sizeTest(){
