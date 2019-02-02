@@ -17,11 +17,9 @@ public class Main {
             );
             lines.forEach(archivo::add);
         }catch (IOException e ){
-            System.out.println("Error!");
+            System.out.println("Ha ocurrido un error");
         }
-        //crear el objeto pila
         Pila pila = new Pila();
-        //crear el objeto calculadora
         MyCalculator calculator = new MyCalculator();
 
 
